@@ -9,14 +9,15 @@ Create Python virtual environment
 > python -m venv sdp-env
 
 Run virtual environment
-> sd-venv/Scripts/activate
+> sdp-env/Scripts/activate
 
 Install the library
 > pip install -r requirements.txt
+
 _If above command result an error, run the cmd or Powershell as Administrator and then re run the above command_
 
 Run the models
-> python src\comparison.py
+> python comparison.py
 
 ### Result
 The results are present in **_result.txt** file. 
