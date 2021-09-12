@@ -36,10 +36,10 @@ def preprocess_data(filename, datasetid):
     sns.set(font_scale=0.5)
     plt.margins()
     sns.heatmap(corr, xticklabels=1, yticklabels=1)
-    plt.savefig("./fig/correlation" + str(datasetid) + ".jpg")
+    plt.savefig("figures/correlation" + str(datasetid) + ".jpg")
     # plt.show()
 
     return X, y, X_train, X_test, X_validation, y_train, y_test, y_validation
 
 
-preprocess_data("./Data/pc1.csv", 10)
+preprocess_data("datasets/pc1.csv", 10)

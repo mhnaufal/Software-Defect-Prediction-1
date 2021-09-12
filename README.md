@@ -17,7 +17,7 @@ Install the library
 _If above command result an error, run the cmd or Powershell as Administrator and then re run the above command_
 
 Run the models
-> python comparison.py
+> python src/comparison.py
 
 ### Result
 The results are present in **_result.txt** file. 

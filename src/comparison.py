@@ -15,7 +15,7 @@ from sklearn.metrics import (
 import sys
 
 prev_stdout = sys.stdout
-f = open("_result.txt", "w")
+f = open("../_result.txt", "w")
 sys.stdout = f
 
 
@@ -56,7 +56,7 @@ datafiles = [
     "pc3.csv",
     "pc4.csv",
 ]
-filename = "./Data/" + datafiles[-1]
+filename = "datasets/" + datafiles[-1]
 
 (
     X,
