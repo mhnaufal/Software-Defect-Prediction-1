@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 
-# convolutional neural network classifier
+# Convolutional Neural Network classifier
 def CNN(X, X_train, X_validation, y_train, y_validation):
     X_train_matrix = X_train.values
     X_validation_matrix = X_validation.values
@@ -41,20 +41,23 @@ def CNN(X, X_train, X_validation, y_train, y_validation):
         validation_data=(X_validation_f, y_validation_matrix),
         verbose=0,
     )
+    
     return model
 
 
-# random forest classifer
+# Random Forest classifer
 def random_forest(X_train, y_train):
     clf = RandomForestClassifier(n_estimators=100, max_depth=6, random_state=1234)
     clf.fit(X_train, np.ravel(y_train))
+
     return clf
 
 
-# support vector machine classifier
+# Support Vector Machine classifier
 def SVM(X_train, y_train):
     scaler = MinMaxScaler(feature_range=(-1, 1)).fit(X_train)
     X_train = scaler.transform(X_train)
     clf = SVC(kernel="rbf", degree=3, gamma="auto")
     clf.fit(X_train, np.ravel(y_train))
+
     return clf

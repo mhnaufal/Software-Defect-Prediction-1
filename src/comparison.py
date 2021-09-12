@@ -12,15 +12,23 @@ from sklearn.metrics import (
     roc_auc_score,
     precision_score,
 )
+from datetime import datetime
 import sys
+import platform
 
 prev_stdout = sys.stdout
-f = open("../_result.txt", "w")
+f = open("_result.txt", "w")
 sys.stdout = f
 
+"""
+print_scores
 
+Print the results of the machine learning models
+"""
 def print_scores(clf_name, y_val, y_val_pred, y_test, y_test_pred):
     print(clf_name)
+    print("Run completed on: ", datetime.now())
+    print("By: ", platform.uname())
     print()
     print("-- Validation Set --")
     print("Accuracy: ", accuracy_score(y_val, y_val_pred))
@@ -40,6 +48,7 @@ def print_scores(clf_name, y_val, y_val_pred, y_test, y_test_pred):
     print()
 
 
+# Index of the datasets, start from 0
 datafiles = [
     "ar1.csv",
     "ar3.csv",
@@ -58,6 +67,9 @@ datafiles = [
 ]
 filename = "datasets/" + datafiles[-1]
 
+
+# Invoke the preprocess_data to get the 
+# features, label, train data, test data, and validation data
 (
     X,
     y,
@@ -67,33 +79,49 @@ filename = "datasets/" + datafiles[-1]
     y_train,
     y_test,
     y_validation,
-) = prep.preprocess_data(filename, 10)
+) = prep.preprocess_data(filename, 5)
 
-# Convolutional Neural Network
+
+"""
+Convolutional Neural Network classifier
+"""
 clf = models.CNN(X, X_train, X_validation, y_train, y_validation)
+
 X_validation_matrix = X_validation.values
 X_validation1 = X_validation_matrix.reshape(
     X_validation_matrix.shape[0], 1, len(X_validation.columns), 1
 )
 y_val_pred = clf.predict(X_validation1) > 0.5
+
 X_test_matrix = X_test.values
 X_test1 = X_test_matrix.reshape(X_test_matrix.shape[0], 1, len(X_test.columns), 1)
 y_test_pred = clf.predict(X_test1) > 0.5
+
 print_scores("CNN", y_validation, y_val_pred, y_test, y_test_pred)
 
-# Random Forest classifier
+
+"""
+Random Forest classifier
+"""
 clf = models.random_forest(X_train, np.ravel(y_train))
+
 y_val_pred = clf.predict(X_validation)
 y_test_pred = clf.predict(X_test)
+
 print_scores("RANDOM FOREST", y_validation, y_val_pred, y_test, y_test_pred)
 
-# Support Vector Machine
+
+"""
+Support Vector Machine classifier
+"""
 clf = models.SVM(X_train, y_train)
 scaler = MinMaxScaler(feature_range=(-1, 1)).fit(X_train)
+
 X_validation = scaler.transform(X_validation)
 X_test = scaler.transform(X_test)
 y_val_pred = clf.predict(X_validation)
 y_test_pred = clf.predict(X_test)
+
 print_scores("SUPPORT VECTOR MACHINE", y_validation, y_val_pred, y_test, y_test_pred)
 
 sys.stdout = prev_stdout

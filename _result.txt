@@ -1,21 +1,25 @@
 CNN
+Run completed on:  2021-09-12 22:28:47.585264
+By:  uname_result(system='Windows', node='DESKTOP-9AHSIL3', release='10', version='10.0.19042', machine='AMD64')
 
 -- Validation Set --
-Accuracy:  0.9275766016713092
-Balanced Accuracy:  0.9256929305512301
-Precision:  0.91
-AUC:  0.92569293055123
+Accuracy:  0.9136490250696379
+Balanced Accuracy:  0.910900031142946
+Precision:  0.8878048780487805
+AUC:  0.910900031142946
 Recall:  0.9578947368421052
 
 -- Test Score --
-Accuracy:  0.9309895833333334
-Balanced Accuracy:  0.9310535417585026
-Precision:  0.9104477611940298
-AUC:  0.9310535417585026
-Recall:  0.9556135770234987
+Accuracy:  0.91796875
+Balanced Accuracy:  0.9180394018514122
+Precision:  0.8960396039603961
+AUC:  0.9180394018514123
+Recall:  0.9451697127937336
 
 
 RANDOM FOREST
+Run completed on:  2021-09-12 22:28:47.994271
+By:  uname_result(system='Windows', node='DESKTOP-9AHSIL3', release='10', version='10.0.19042', machine='AMD64')
 
 -- Validation Set --
 Accuracy:  0.8941504178272981
@@ -33,6 +37,8 @@ Recall:  0.9738903394255874
 
 
 SUPPORT VECTOR MACHINE
+Run completed on:  2021-09-12 22:28:48.267259
+By:  uname_result(system='Windows', node='DESKTOP-9AHSIL3', release='10', version='10.0.19042', machine='AMD64')
 
 -- Validation Set --
 Accuracy:  0.7883008356545961
