@@ -1,3 +1,4 @@
+import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, Flatten, MaxPool2D
 from sklearn.ensemble import RandomForestClassifier
@@ -46,7 +47,7 @@ def CNN(X, X_train, X_validation, y_train, y_validation):
 # random forest classifer
 def random_forest(X_train, y_train):
     clf = RandomForestClassifier(n_estimators=100, max_depth=6, random_state=1234)
-    clf.fit(X_train, y_train)
+    clf.fit(X_train, np.ravel(y_train))
     return clf
 
 
@@ -55,5 +56,5 @@ def SVM(X_train, y_train):
     scaler = MinMaxScaler(feature_range=(-1, 1)).fit(X_train)
     X_train = scaler.transform(X_train)
     clf = SVC(kernel="rbf", degree=3, gamma="auto")
-    clf.fit(X_train, y_train)
+    clf.fit(X_train, np.ravel(y_train))
     return clf

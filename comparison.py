@@ -82,7 +82,7 @@ y_test_pred = clf.predict(X_test1) > 0.5
 print_scores("CNN", y_validation, y_val_pred, y_test, y_test_pred)
 
 # Random Forest classifier
-clf = models.random_forest(X_train, y_train)
+clf = models.random_forest(X_train, np.ravel(y_train))
 y_val_pred = clf.predict(X_validation)
 y_test_pred = clf.predict(X_test)
 print_scores("RANDOM FOREST", y_validation, y_val_pred, y_test, y_test_pred)
