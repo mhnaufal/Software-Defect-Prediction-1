@@ -6,18 +6,26 @@ _Windows 10 steps_
 Open up cmd or Powershell (Powershell prefered) as Administrator and move to this repo directory
 
 Create Python virtual environment
-> python -m venv sdp-env
+```
+python -m venv sdp-env
+```
 
 Run virtual environment
-> sdp-env/Scripts/activate
+```
+sdp-env/Scripts/activate
+```
 
 Install the library
-> pip install -r requirements.txt
+```
+pip install -r requirements.txt
+```
 
 _If above command result an error, run the cmd or Powershell as Administrator and then re run the above command_
 
 Run the models
-> python src/comparison.py
+```
+python src/comparison.py
+```
 
 ### Result
 The results are present in **_result.txt** file. 
